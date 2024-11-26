@@ -69,7 +69,7 @@ public class Database(string connectionString) : IDatabase
         {
             foreach (var note in notes)
             {
-                connection.Execute(query, new { Note = note, ExpiringDate = SqlDbType.DateTimeOffset });
+                connection.Execute(query, new { Note = note, Inserted = time},transaction);
             }
             
             transaction.Commit();
